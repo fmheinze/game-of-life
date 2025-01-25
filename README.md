@@ -8,7 +8,7 @@ For running the serial version of Game of Life you need a C++ compiler, Python (
 1. Navigate to the game_of_life_serial directory and run ```make``` in the terminal to compile the code using the Makefile (uses g++). The game_of_life executable will be created in the directory.
 2. In order to evolve a state you have to provide an file that contains the initial state. You can run the program with two different types of initial state files, .rle or .ppm files. Some example files are provided in the initial_states directory.
    
-3. Running with a .ppm initial state file:
+3. Run with a .ppm initial state file:
    ```
    /path/to/game_of_life /path/to/initial/state.ppm <num_iterations> <save_movie>
    ```
@@ -21,7 +21,7 @@ For running the serial version of Game of Life you need a C++ compiler, Python (
    ```
    ./game_of_life ./initial_states/spacefiller_state.ppm 300 1
    ```
-5. Running with a .rle initial state file:
+4. Run with a .rle initial state file:
    ```
    /path/to/game_of_life /path/to/initial/state.rle <num_iterations> <save_movie> <width> <height> <pos_x> <pos_y>
    ```
@@ -36,7 +36,7 @@ For running the serial version of Game of Life you need a C++ compiler, Python (
    ```
    ./game_of_life ./initial_states/spacefiller2.rle 500 1 200 400 90 180
    ```
-6. THe outputs will be saved in the output directory. In case you do not want to save a movie file only the .ppm images of the individual iterations are saved.
+5. The outputs will be saved in the output directory. In case you do not want to save a movie file only the .ppm images of the individual iterations are saved.
 
 ## How to use (parallel version)
 1. Navigate to the game_of_life_parallel directory and run ```make``` in the terminal to compile the code using the Makefile (uses mpicxx). The game_of_life executable will be created in the directory.
@@ -45,5 +45,7 @@ For running the serial version of Game of Life you need a C++ compiler, Python (
    mpirun -n 4 ./game_of_life ./initial_states/spacefiller2.rle 500 1 200 400 90 180
    ```
 
+## How to get additional .rle initial states
+Besides the example .rle files provided in the initial_states directory one can download .rle files of additional patterns for example on [LifeWiki](https://conwaylife.com/wiki/)
    
    
