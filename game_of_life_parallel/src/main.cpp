@@ -32,8 +32,8 @@ int main(int argc, char** argv) {
     // Find the neighbor rank of each process (using periodic boundary conditions)
     int nleft = (xcoord > 0         ) ? rank - 1      : rank + (nprocx - 1);
     int nrght = (xcoord < nprocx - 1) ? rank + 1      : rank - (nprocx - 1);
-    int nbot  = (ycoord > 0         ) ? rank - nprocx : rank + (nprocy - 1) * nprocx;
-    int ntop  = (ycoord < nprocy - 1) ? rank + nprocx : rank - (nprocy - 1) * nprocx;
+    int ntop  = (ycoord > 0         ) ? rank - nprocx : rank + (nprocy - 1) * nprocx;
+    int nbot  = (ycoord < nprocy - 1) ? rank + nprocx : rank - (nprocy - 1) * nprocx;
 
     // Find the coordinates of each grid cell for each process
     int ibegin = imax * xcoord     / nprocx;

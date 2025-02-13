@@ -58,10 +58,10 @@ void ghost_cell_update(unsigned char** grid, int isize, int jsize, int nleft, in
 
     // Send the row data for top and bottom communication directly (including the corner cells)
     int bufcount = isize + 2;
-    MPI_Irecv(&grid[jsize][-1],   bufcount, MPI_UNSIGNED_CHAR, ntop, 3, MPI_COMM_WORLD, &request[0]);
-    MPI_Isend(&grid[0][-1],       bufcount, MPI_UNSIGNED_CHAR, nbot, 3, MPI_COMM_WORLD, &request[1]);
-    MPI_Irecv(&grid[-1][-1],      bufcount, MPI_UNSIGNED_CHAR, nbot, 4, MPI_COMM_WORLD, &request[2]);
-    MPI_Isend(&grid[jsize-1][-1], bufcount, MPI_UNSIGNED_CHAR, ntop, 4, MPI_COMM_WORLD, &request[3]);
+    MPI_Irecv(&grid[jsize][-1],   bufcount, MPI_UNSIGNED_CHAR, nbot, 3, MPI_COMM_WORLD, &request[0]);
+    MPI_Isend(&grid[0][-1],       bufcount, MPI_UNSIGNED_CHAR, ntop, 3, MPI_COMM_WORLD, &request[1]);
+    MPI_Irecv(&grid[-1][-1],      bufcount, MPI_UNSIGNED_CHAR, ntop, 4, MPI_COMM_WORLD, &request[2]);
+    MPI_Isend(&grid[jsize-1][-1], bufcount, MPI_UNSIGNED_CHAR, nbot, 4, MPI_COMM_WORLD, &request[3]);
     MPI_Waitall(4, request, status);
 }
 
